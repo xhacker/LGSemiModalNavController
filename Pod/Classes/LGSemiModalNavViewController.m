@@ -19,6 +19,7 @@
 - (void)loadView{
     [super loadView];
     
+    self.navigationBarHidden = YES;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.view.clipsToBounds = YES;
     self.transitioningDelegate = self;
