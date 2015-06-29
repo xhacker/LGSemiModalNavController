@@ -46,6 +46,8 @@
  */
 @property (nonatomic, assign) CGFloat backgroundShadeAlpha;
 
+@property (nonatomic, assign) CGFloat bottomMargin;
+
 /**
  Dismisses the view controller
  */

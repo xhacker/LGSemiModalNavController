@@ -50,4 +50,6 @@
  */
 @property (nonatomic, assign) CGFloat backgroundShadeAlpha;
 
+@property (nonatomic, assign) CGFloat bottomMargin;
+
 @end
