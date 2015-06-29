@@ -36,11 +36,16 @@
     _backgroundShadeAlpha = 0.4;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.dismissalDelegate semiModalWillDismiss];
+}
+
 #pragma mark - Actions
 
 - (void)dismissWasTapped{
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.dismissalDelegate semiModalWillDismiss];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate Methods
