@@ -40,6 +40,7 @@
 
 - (void)dismissWasTapped{
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.dismissalDelegate semiModalWillDismiss];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate Methods

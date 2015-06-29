@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "LGSemiModalTransition.h"
 
+@protocol LGSemiModalDismissalDelegate
+
+- (void)semiModalWillDismiss;
+
+@end
+
 @interface LGSemiModalNavViewController : UINavigationController <UIViewControllerTransitioningDelegate>
+
+@property (weak, nonatomic) id<LGSemiModalDismissalDelegate> dismissalDelegate;
 
 /**
  Switch this to YES to enable tapping on the background to dismiss the semi modal.
