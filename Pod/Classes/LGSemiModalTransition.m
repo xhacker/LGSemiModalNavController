@@ -37,11 +37,16 @@
         backgroundView.alpha = 0;
         backgroundView.tag = 99;
         backgroundView.backgroundColor = _backgroundShadeColor;
+    }
+
+    UIView *recognizerView = [[[transitionContext containerView] subviews] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"tag = 233"]].lastObject;
+    if (!recognizerView){
+        recognizerView = [[UIView alloc] initWithFrame:transitionContext.containerView.bounds];
+        recognizerView.tag = 233;
         
         if (self.tapDismissEnabled) {
-            UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:toViewController action:@selector(dismissWasTapped)];
-            [backgroundView addGestureRecognizer:tap];
-            backgroundView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:toViewController action:@selector(dismissWasTapped)];
+            [recognizerView addGestureRecognizer:tap];
         }
     }
     
@@ -50,6 +55,7 @@
     
     if (self.presenting) {
         [transitionContext.containerView insertSubview:backgroundView belowSubview:toViewController.view];
+        [transitionContext.containerView insertSubview:recognizerView aboveSubview:backgroundView];
         
         toViewController.view.frame = modalViewInitialFrame;
         [transitionContext.containerView addSubview:toViewController.view];
