@@ -71,6 +71,7 @@
     animator.springDamping = _springDamping;
     animator.springVelocity = _springVelocity;
     animator.backgroundShadeAlpha = _backgroundShadeAlpha;
+    animator.leftMargin = _leftMargin;
     animator.bottomMargin = _bottomMargin;
     return animator;
 }

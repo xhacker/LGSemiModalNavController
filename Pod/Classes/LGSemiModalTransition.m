@@ -24,7 +24,11 @@
     UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController* toViewController = (UIViewController*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    CGRect modalViewFinalFrame = CGRectMake(0, transitionContext.containerView.frame.size.height - toViewController.view.frame.size.height - self.bottomMargin, toViewController.view.frame.size.width, toViewController.view.frame.size.height);
+    CGRect modalViewFinalFrame = CGRectMake(
+        self.leftMargin,
+        transitionContext.containerView.frame.size.height - toViewController.view.frame.size.height - self.bottomMargin,
+        toViewController.view.frame.size.width,
+        toViewController.view.frame.size.height);
     CGRect modalViewInitialFrame = modalViewFinalFrame;
     modalViewInitialFrame.origin.y = transitionContext.containerView.frame.size.height - self.bottomMargin;
     modalViewInitialFrame.size.height = 0;
