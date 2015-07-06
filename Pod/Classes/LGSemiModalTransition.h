@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class LGSemiModalNavViewController;
+
 @interface LGSemiModalTransition : NSObject <UIViewControllerAnimatedTransitioning>
+
+/**
+ A reference to the modal view controller
+ */
+@property (nonatomic, weak) LGSemiModalNavViewController *viewController;
 
 /**
  A switch to determine if the modal is a presenter or a dismisser

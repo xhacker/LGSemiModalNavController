@@ -33,8 +33,8 @@
     modalViewInitialFrame.origin.y = transitionContext.containerView.frame.size.height - self.bottomMargin;
     modalViewInitialFrame.size.height = 0;
     
-    UIView* backgroundView = [[[[transitionContext containerView] subviews] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"tag = 99"]] lastObject];
-    if(!backgroundView){
+    UIView *backgroundView = [[[[transitionContext containerView] subviews] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"tag = 99"]] lastObject];
+    if (!backgroundView){
         CGRect frame = transitionContext.containerView.bounds;
         frame.size.height -= self.bottomMargin;
         backgroundView = [[UIView alloc] initWithFrame:frame];
@@ -42,6 +42,7 @@
         backgroundView.tag = 99;
         backgroundView.backgroundColor = _backgroundShadeColor;
     }
+    self.viewController.backgroundView = backgroundView;
 
     UIView *recognizerView = [[[transitionContext containerView] subviews] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"tag = 233"]].lastObject;
     if (!recognizerView){
@@ -53,6 +54,7 @@
             [recognizerView addGestureRecognizer:tap];
         }
     }
+    self.viewController.recognizerView = recognizerView;
     
     fromViewController.view.userInteractionEnabled = NO;
     toViewController.view.userInteractionEnabled = NO;

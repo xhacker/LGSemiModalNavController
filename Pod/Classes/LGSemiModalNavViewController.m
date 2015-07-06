@@ -54,6 +54,12 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         self.view.frame = self.newFrameBlock(size, self.view.frame);
+        
+        CGRect backgroundFrame = CGRectMake(0, 0, size.width, size.height);
+        backgroundFrame.size.height -= self.bottomMargin;
+        self.backgroundView.frame = backgroundFrame;
+        
+        self.recognizerView.frame = CGRectMake(0, 0, size.width, size.height);
     } completion:nil];
     
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
@@ -73,6 +79,7 @@
 
 -(LGSemiModalTransition*)transitionPresenting:(BOOL)presenting{
     LGSemiModalTransition *animator = [LGSemiModalTransition new];
+    animator.viewController = self;
     animator.presenting = presenting;
     animator.tapDismissEnabled = _tapDismissEnabled;
     animator.animationSpeed = _animationSpeed;

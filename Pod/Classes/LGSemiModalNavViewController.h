@@ -67,4 +67,7 @@
  */
 @property (nonatomic, copy) CGRect (^newFrameBlock)(CGSize newSize, CGRect oldFrame);
 
+@property (nonatomic, weak) UIView *backgroundView;
+@property (nonatomic, weak) UIView *recognizerView;
+
 @end
