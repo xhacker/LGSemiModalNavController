@@ -62,4 +62,9 @@
  */
 - (void)dismissWasTapped;
 
+/**
+ Used for updating semi modal frame after rotation
+ */
+@property (nonatomic, copy) CGRect (^newFrameBlock)(CGSize newSize, CGRect oldFrame);
+
 @end

@@ -49,6 +49,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Handle rotation
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        self.view.frame = self.newFrameBlock(size, self.view.frame);
+    } completion:nil];
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
+
 #pragma mark - UIViewControllerTransitioningDelegate Methods
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
